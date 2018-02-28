@@ -6,7 +6,8 @@
  * @param string $class The fully-qualified class name.
  * @return void
  */
-spl_autoload_register(function ($class) {
+spl_autoload_register(function ($class) 
+{
 
     // project-specific namespace prefix
     $prefix = 'Abraham\\TwitterOAuth\\';
@@ -16,7 +17,8 @@ spl_autoload_register(function ($class) {
 
     // does the class use the namespace prefix?
     $len = strlen($prefix);
-    if (strncmp($prefix, $class, $len) !== 0) {
+    if (strncmp($prefix, $class, $len) !== 0) 
+    {
         // no, move to the next registered autoloader
         return;
     }
@@ -30,7 +32,8 @@ spl_autoload_register(function ($class) {
     $file = $base_dir . str_replace('\\', '/', $relative_class) . '.php';
 
     // if the file exists, require it
-    if (file_exists($file)) {
+    if (file_exists($file)) 
+    {
         require $file;
     }
 });
